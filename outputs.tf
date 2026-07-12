@@ -1,3 +1,7 @@
+output "netapp_snapshots_id" {
+  description = "Map of id values across all netapp_snapshots, keyed the same as var.netapp_snapshots"
+  value       = { for k, v in azurerm_netapp_snapshot.netapp_snapshots : k => v.id }
+}
 output "netapp_snapshots_account_name" {
   description = "Map of account_name values across all netapp_snapshots, keyed the same as var.netapp_snapshots"
   value       = { for k, v in azurerm_netapp_snapshot.netapp_snapshots : k => v.account_name }
